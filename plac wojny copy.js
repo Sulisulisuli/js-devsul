@@ -33,6 +33,7 @@ btnRoll.addEventListener('click', function () {
   if (playing) {
     // 1 generate random dice roll
     const dice = Math.trunc(Math.random() * 6) + 1;
+    diceEl.classList.add('hide');
     // 2 display dice
     // diceEl.classList.remove('hide');
     // diceEl.src = `dice-${dice}.png`;
