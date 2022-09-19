@@ -28,12 +28,22 @@ const switchPlayer = function () {
   player1El.classList.toggle('active');
 };
 
+const hideDice = function () {
+  document.getElementById('dice-1').classList.add('hide');
+  document.getElementById('dice-2').classList.add('hide');
+  document.getElementById('dice-3').classList.add('hide');
+  document.getElementById('dice-4').classList.add('hide');
+  document.getElementById('dice-5').classList.add('hide');
+  document.getElementById('dice-6').classList.add('hide');
+};
+
 // rolling dice function
 btnRoll.addEventListener('click', function () {
   if (playing) {
     // 1 generate random dice roll
     const dice = Math.trunc(Math.random() * 6) + 1;
-    diceEl.classList.add('hide');
+    hideDice();
+
     // 2 display dice
     // diceEl.classList.remove('hide');
     // diceEl.src = `dice-${dice}.png`;
@@ -59,7 +69,7 @@ btnHold.addEventListener('click', function () {
     document.getElementById(`score-${activePlayer}`).textContent =
       scores[activePlayer];
     // chceck score >= 100
-    if (scores[activePlayer] >= 20) {
+    if (scores[activePlayer] >= 50) {
       // finish game
       playing = false;
       document.querySelector(`.player-${activePlayer}`).classList.add('winner');
@@ -78,6 +88,7 @@ btnNew.addEventListener('click', function () {
   currentScore = 0;
   activePlayer = 0;
   playing = true;
+  hideDice();
 
   score0El.textContent = 0;
   score1El.textContent = 0;
