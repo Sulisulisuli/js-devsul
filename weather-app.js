@@ -81,7 +81,9 @@ function weatherDetails(info) {
       document.getElementById('sun-cloudy').classList.remove('hide');
     }
 
-    document.querySelector('.temperature').textContent = Math.floor(temp);
+    document.querySelector('.temperature').textContent = `${Math.floor(
+      temp
+    )} °C`;
     document.querySelector('.weather-discription').textContent = description;
     document.querySelector('.city-name').textContent = city;
     document.querySelector('.country-name').textContent = country;
