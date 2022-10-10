@@ -4,6 +4,7 @@ const wrapper = document.querySelector('.forcast-wrapper');
 const inputApp = document.querySelector('.app-input');
 const messageApp = document.querySelector('.app-message');
 const locationBtn = document.getElementById('locationbtn');
+const checkBtn = document.getElementById('checkBtn');
 const appFirstView = document.querySelector('.app-first-view');
 const appInfoView = document.querySelector('.forcast-info-wrapper');
 const backArrow = document.querySelector('.back-arrow');
@@ -13,6 +14,13 @@ let api;
 document.addEventListener('keyup', function (e) {
   //if user press enter
   if (e.key == 'Enter' && inputApp.value != '') {
+    requestApi(inputApp.value);
+    backArrow.classList.remove('hide');
+  }
+});
+
+checkBtn.addEventListener('click', function () {
+  if (inputApp.value != '') {
     requestApi(inputApp.value);
     backArrow.classList.remove('hide');
   }
